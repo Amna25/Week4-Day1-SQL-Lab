@@ -1,5 +1,7 @@
 DROP TABLE movies;
 DROP TABLE people;
+DROP TABLE food;
+
 
 CREATE TABLE movies (
 	id SERIAL PRIMARY KEY,
@@ -11,6 +13,12 @@ CREATE TABLE movies (
 CREATE TABLE people (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR(255)
+);
+
+CREATE TABLE food (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(255),
+	size VARCHAR(255)
 );
 
 INSERT INTO people (name) VALUES ('Homer Simpson');
@@ -50,6 +58,16 @@ INSERT INTO movies (title, year, show_time) VALUES ('Spider-Man: Homecoming', 20
 INSERT INTO movies (title, year, show_time) VALUES ('Thor: Ragnarok', 2017, '22:10');
 INSERT INTO movies (title, year, show_time) VALUES ('Black Panther', 2018, '21:00');
 
+
+INSERT INTO food (name, size) VALUES ('Salted Popcorn', 'Large');
+INSERT INTO food (name, size) VALUES ('Salted Popcorn', 'Medium');
+INSERT INTO food (name, size) VALUES ('Salted Popcorn', 'Small');
+INSERT INTO food (name, size) VALUES ('Sweet Popcorn', 'Large');
+INSERT INTO food (name, size) VALUES ('Sweet Popcorn', 'Medium');
+INSERT INTO food (name, size) VALUES ('Sweet Popcorn', 'Small');
+INSERT INTO food (name, size) VALUES ('Plain Popcorn', 'Large');
+INSERT INTO food (name, size) VALUES ('Plain Popcorn', 'Medium');
+INSERT INTO food (name, size) VALUES ('Plain Popcorn', 'Small');
 
 -- -- Review notes:
 -- SELECT * FROM movies;
@@ -156,5 +174,9 @@ UPDATE movies SET show_time = '23:55' WHERE title = 'Iron Man 3';
 
 DELETE FROM movies WHERE title IN ('Iron Man 2', 'Iron Man 3') OR show_time IN ('22:55', '12:35') OR year IN (2015, 2018);
 
+
+UPDATE food SET name = 'Butter Popcorn' WHERE name = 'Plain Popcorn';
+
 SELECT * FROM people;
 SELECT * FROM movies;
+SELECT * FROM food;
